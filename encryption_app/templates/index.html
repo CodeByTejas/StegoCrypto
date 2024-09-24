@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hybrid Encryption</title>
+</head>
+<body>
+    <h1>Hybrid Encryption System with Steganography</h1>
+
+    <!-- Encryption Form -->
+    <h2>Encrypt a Message</h2>
+    <form id="encryptForm" method="post" enctype="multipart/form-data" action="/encrypt/">
+        {% csrf_token %}
+        <label for="key_size">Key Size:</label>
+        <input type="number" name="key_size" value="1024">
+        <br>
+        <label for="message">Message:</label>
+        <textarea name="message"></textarea>
+        <br>
+        <label for="image_file">Upload Image:</label>
+        <input type="file" name="image_file" accept="image/*">
+        <br>
+        <input type="submit" value="Encrypt">
+    </form>
+
+    <!-- Decryption Form -->
+    <h2>Decrypt a Message</h2>
+    <form id="decryptForm" method="post" enctype="multipart/form-data" action="/decrypt/">
+        {% csrf_token %}
+        <label for="decryption_key">Decryption Key:</label>
+        <input type="text" name="decryption_key">
+        <br>
+        <label for="image_file">Upload Image:</label>
+        <input type="file" name="image_file" accept="image/*">
+        <br>
+        <input type="submit" value="Decrypt">
+    </form>
+</body>
+</html>
